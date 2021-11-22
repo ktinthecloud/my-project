@@ -18,3 +18,10 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+    - name: Dockerize
+      if: success()
+      uses: manusa/actions-publish-docker@v1.1.2
+      with:
+       name: ktoddsd/kevintodd
+       username: ${{ secrets.DOCKER_HUB_USER }}
+       password: ${{ secrets.DOCKER_HUB_PASSWORD }}

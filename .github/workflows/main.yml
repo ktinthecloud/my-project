@@ -33,3 +33,24 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          
+#Set Kubernetes context (Azure AKS)
+      - uses: azure/aks-set-context@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}' # Azure credentials
+          resource-group: 'kevintodd-net'
+          cluster-name: 'kevintodd-net'
+        id: login
+
+# Deploy to Azure AKS using kubernetes
+      - uses: Azure/k8s-deploy@v1
+        with:
+         namespace: default
+       #Specify what manifest file or files to use
+         manifests: |
+          .manifests/deployment.yaml
+          .manifests/service.yaml
+        #This will replace any image in manifest files with this 
+        #specific version
+         images: |
+          index.docker.io/ktoddsd/kevintodd.net:${{env.RELEASE_VERSION}}

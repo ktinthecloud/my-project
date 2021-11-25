@@ -1,6 +1,6 @@
 # Upon creating a new release and publishing it in GitHub, this workflow will kick off
 
-name: Publish Docker image
+name: Publish Docker image & Deploy to AKS
 
 on:
   release:

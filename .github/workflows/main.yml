@@ -53,4 +53,4 @@ jobs:
         #This will replace any image in manifest files with this 
         #specific version
          images: |
-          index.docker.io/ktoddsd/kevintodd.net:${{env.RELEASE_VERSION}}
+          index.docker.io/ktoddsd/kevintodd.net:latest

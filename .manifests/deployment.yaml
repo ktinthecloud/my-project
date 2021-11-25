@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kevintodd-net-deployment
+  labels:
+    app: kevintodd-net
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kevintodd-net
+  template:
+    metadata:
+      labels:
+        app: kevintodd-net
+    spec:
+      containers:
+      - name: kevintodd-net
+        image: ktoddsd/kevintodd.net:v0.0.2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

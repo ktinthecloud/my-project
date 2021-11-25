@@ -38,8 +38,8 @@ jobs:
       - uses: azure/aks-set-context@v1
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}' # Azure credentials
-          resource-group: 'magnus-aks'
-          cluster-name: 'kramerica-k8s'
+          resource-group: 'kevintodd-net'
+          cluster-name: 'kevintodd-net'
         id: login
 
 # Deploy to Azure AKS using kubernetes

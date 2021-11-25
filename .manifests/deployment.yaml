@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kevintodd-net
-        image: ktoddsd/kevintodd.net:v0.0.2
+        image: ktoddsd/kevintodd.net:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
